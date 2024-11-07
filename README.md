@@ -7,7 +7,7 @@ This project is intended to demonstrate a bug with `MultiplayerSynchronizer` nod
 - 3. Under `Debug->Custom Run Instances...` enable `Enable Multiple Instances` and set the instance count to 2.
 - 4. Launch the demo using `Run Project` (F5)
 - 5. In one window, press "Host Server" and use WASD or Arrow Keys to move the character around.
-- 6. In the other window, press "Join Server"
+- 6. In the other window, press "Connect to Server"
 
 Depending on whether `move_and_slide` is being used, the newly spawned player will or will not spawn on top of the host player.
 
