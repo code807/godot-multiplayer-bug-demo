@@ -1,8 +1,8 @@
 extends Node3D
 
-var player_scene = preload("res://PlayerScene.tscn")
-
 var peer = ENetMultiplayerPeer.new()
+var player_scene = preload("res://PlayerScene.tscn")
+@onready var ip_input = $"HUD/Server Controls/LineEdit"
 @onready var playerspawner: MultiplayerSpawner = $MultiplayerSpawner
 
 func start_server():
@@ -11,7 +11,7 @@ func start_server():
 	var newplayer = spawn_player()
 
 func connect_to_server():
-	peer.create_client("localhost", 8613)
+	peer.create_client(ip_input.text, 8613)
 	multiplayer.multiplayer_peer = peer
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
