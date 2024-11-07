@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://btisega31i7in"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_pka6g"]
+[ext_resource type="Texture2D" uid="uid://yauh1ap2dguq" path="res://icon.svg" id="2_747ep"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wib0l"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:authority")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1jp7y"]
+
+[node name="PlayerScene" type="CharacterBody3D"]
+script = ExtResource("1_pka6g")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wib0l")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.54, 0, 0, 0, 1.54, 0, 0, 0, 1.54, 0, 1, 0)
+texture = ExtResource("2_747ep")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1jp7y")

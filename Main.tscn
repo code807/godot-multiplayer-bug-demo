@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsh0uucj5wb3k"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_cpdvn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_up33f"]
+size = Vector2(13, 13)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_cpdvn")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Server Controls" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Host Server" type="Button" parent="HUD/Server Controls"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 156.0
+offset_bottom = 43.0
+focus_mode = 0
+text = "Host Server"
+
+[node name="Connect to Server" type="Button" parent="HUD/Server Controls"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 53.0
+offset_right = 156.0
+offset_bottom = 84.0
+focus_mode = 0
+text = "Connect to Server"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3, 7)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_up33f")
+
+[connection signal="pressed" from="HUD/Server Controls/Host Server" to="." method="start_server"]
+[connection signal="button_down" from="HUD/Server Controls/Connect to Server" to="." method="connect_to_server"]
