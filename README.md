@@ -1,5 +1,5 @@
 # Introduction
-This project is intended to demonstrate a bug with `MultiplayerSynchronizer` nodes, specifically related to `CharacterBody3D` nodes and changing node authority. The bug involves having multiple "Players" spawning into a game. When a second player node is spawned into a scene and the authority of the new player node is changed, the new node will erroneously inherit the position of the last player spawned if the players are both `CharacterBody3D` nodes using `move_and_slide()` every physics frame. This bug does not occur if the nodes are not specifically using `move_and_slide()`, and instead are setting their positions manually per frame.
+This project is intended to demonstrate a bug with `MultiplayerSynchronizer` nodes in Godot 4.3, specifically related to `CharacterBody3D` nodes and changing node authority. The bug involves having multiple "Players" spawning into a game. When a second player node is spawned into a scene and the authority of the new player node is changed, the new node will erroneously inherit the position of the last player spawned if the players are both `CharacterBody3D` nodes using `move_and_slide()` every physics frame. This bug does not occur if the nodes are not specifically using `move_and_slide()`, and instead are setting their positions manually per frame.
 
 # Instructions
 - 1. Clone the repo
