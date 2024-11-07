@@ -13,7 +13,6 @@ func start_server():
 func connect_to_server():
 	peer.create_client(ip_input.text, 8613)
 	multiplayer.multiplayer_peer = peer
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _ready() -> void:
 	$MultiplayerSpawner.spawn_function = custom_spawn
